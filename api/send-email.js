@@ -1,6 +1,6 @@
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -22,11 +22,10 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    // Create transporter with Hostinger SMTP
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT) || 587,
-      secure: false, // Use STARTTLS with port 587
+      secure: false,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -36,9 +35,8 @@ module.exports = async function handler(req, res) {
       }
     });
 
-    // IMPORTANT: Must await the sendMail on Vercel serverless
     const info = await transporter.sendMail({
-      from: `"Technexra Contact Form" <${process.env.SMTP_USER}>`,
+      from: `"Technexra" <${process.env.SMTP_USER}>`,
       to: process.env.SMTP_USER,
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
@@ -66,4 +64,4 @@ module.exports = async function handler(req, res) {
       details: error.message 
     });
   }
-};
+}
