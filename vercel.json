@@ -1,5 +1,5 @@
 {
-  "framework": "other",
+  "framework": "vite",
   "builds": [
     {
       "src": "vite.config.js",
@@ -8,6 +8,9 @@
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
