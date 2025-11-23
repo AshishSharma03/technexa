@@ -70,7 +70,7 @@ const portfolio = [
     title: "AI-Powered Customer Service",
     company: "E-Commerce Leader",
     desc: "Implemented intelligent chatbots handling 90% of support queries",
-    image: "/public/3d-rendering-biorobots-concept.jpg",
+    image: "/3d-rendering-biorobots-concept.jpg",
   },
   {
     title: "Cloud Migration & Optimization",
@@ -88,13 +88,13 @@ const portfolio = [
     title: "Real-Time Data Analytics Dashboard",
     company: "Financial Services",
     desc: "Real-time insights platform processing 10M+ transactions daily",
-    image: "/public/3d-graph-computer-illustration.jpg",
+    image: "/3d-graph-computer-illustration.jpg",
   },
   {
     title: "Security & Compliance Platform",
     company: "Enterprise Tech Corp",
     desc: "Automated compliance checks reducing audit time by 80%",
-    image: "/public/10222603.jpg",
+    image: "/10222603.jpg",
   },
 ]
 
