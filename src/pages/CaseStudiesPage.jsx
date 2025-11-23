@@ -28,7 +28,7 @@ const caseStudies = [
     title: "Retail E-commerce Overhaul",
     client: "StyleHub",
     category: "Custom Development",
-    image: "public/sasas.png",
+    image: "/sasas.png",
     description:
       "Developed headless e-commerce platform with React and Node.js, improving page load times by 50% and increasing conversion rates by 25%.",
   },
@@ -60,7 +60,7 @@ const caseStudies = [
     title: "SaaS Platform for Education",
     client: "LearnSphere",
     category: "Custom Development",
-    image: "public/Gemini_Generated_Image_fh6ihdfh6ihdfh6i.png",
+    image: "/Gemini_Generated_Image_fh6ihdfh6ihdfh6i.png",
     description:
       "Created multi-tenant SaaS platform scaling to over 1 million active users with robust, engaging user experience and seamless performance.",
   },
