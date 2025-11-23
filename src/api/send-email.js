@@ -13,21 +13,18 @@ export default async function handler(req, res) {
 
   try {
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,   // e.g. smtp.gmail.com
-      port: Number(process.env.SMTP_PORT) || 587 , // usually 465 or 587
-      secure: true,                  // true for port 465, false for 587
+      host: process.env.SMTP_HOST,
+      port: 587, // Use 587 instead of 465
+      secure: false, // false for port 587
       auth: {
-        user: "info@effred.com", // your SMTP user/email
-        pass: process.env.SMTP_PASS, // your SMTP password
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
-      tls: {
-    rejectUnauthorized: false // Add this if needed
-    }
     });
 
     await transporter.sendMail({
-      from: 'info@effred.com',   // sender info
-      to: 'info@effred.com',  // your receiving email
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_USER,
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -42,6 +39,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     console.error('Email sending error:', error);
-    return res.status(500).json({ error: 'Failed to send email' });
+    return res.status(500).json({ error: 'Failed to send email', details: error.message });
   }
 }
