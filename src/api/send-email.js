@@ -13,13 +13,16 @@ export default async function handler(req, res) {
 
   try {
     const transporter = nodemailer.createTransport({
-      host: process.env.VITE_SMTP_HOST,   // e.g. smtp.gmail.com
-      port: Number(process.env.VITE_SMTP_PORT) || 465, // usually 465 or 587
+      host: process.env.SMTP_HOST,   // e.g. smtp.gmail.com
+      port: Number(process.env.SMTP_PORT) || 587 , // usually 465 or 587
       secure: true,                  // true for port 465, false for 587
       auth: {
         user: "info@effred.com", // your SMTP user/email
-        pass: process.env.VITE_SMTP_PASS, // your SMTP password
+        pass: process.env.SMTP_PASS, // your SMTP password
       },
+      tls: {
+    rejectUnauthorized: false // Add this if needed
+    }
     });
 
     await transporter.sendMail({
